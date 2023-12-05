@@ -47,4 +47,16 @@ Do this on every server
 <h3>Configure SSH Keys with GitHub</h3>
 In order to clone a repository on a webserver from github, we need to configurate our ssh keys
 We must do this in each server (except the ansible management server)
-In your terminal 
+1) Generate an ssh key
+Inside the <u>shellscript_files</u> directory, there is a file called <b>generate_ssh_key.txt</b>. Change your email address to the one linked up with your github account and copy that line
+Go into each server, paste the command, and run it. Copy the line at the bottom that starts with "<b>ssh-ed25519</b> "
+2) Add your ssh key to github
+Log in to your github account and navigate to settings
+Under the "Access" dropbox, look for "<b>SSH and GPG Keys</b>. Click that
+Look for the green box that says "<b>New SSH key</b>". Click that
+Title your ssh key something reasonable in association to what server the key was generated on and paste that line into the key box
+Click "<b>Add SSH Key</b>" and you are all set up
+
+<h3>Running the playbook</h3>
+It is finally time to run the playbooks. 
+
