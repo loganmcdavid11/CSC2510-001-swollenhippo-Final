@@ -1,8 +1,8 @@
 # Documentation for SwollenHippo Enterprise: Ansible Management Server
 
 <h3>Configurating Servers</h3>
-To run your ansible management server, you will need:
-- Minimum 3 Servers
+To run your ansible management server, you will need:<br>
+- Minimum 3 Servers<br>
   - 1 Ansible Management Server
   - 1 Web Server
   - 1 Hybrid Server
