@@ -88,38 +88,45 @@ We must do this in each server (except the ansible management server)
 
 
 <h3>Running the playbook</h3>
-It is finally time to run the playbooks. 
-But before we do that, there is one last thing that must change before we execute the playbook
-Inside of playbook files and shell scripting files, there will be lines that access files by climbing through the directory.
-For every time you see <b>jlmcdavid42</b>, change that to your username. 
-You can find your username by typing into the terminal <b>whoami</b>
+It is finally time to run the playbooks.<br />
+But before we do that, there is one last thing that must change before we execute the playbook.<br />
+Inside of playbook files and shell scripting files, there will be lines that access files by climbing through the directory.<br />
+For every time you see <b>jlmcdavid42</b>, change that to your username.<br />
+You can find your username by typing into the terminal <b>whoami</b><br />
 You will need to do this in:
-- cron_file.sh
-- env_script.sh
-- run_playbook.sh
-- dev_playbook.yml
-- test_playbook.yml
-- prod_playbook.yml
-There is a playbook for whichever environment you would like to run it on
-To run your playbook, navigate to the <u>shellscript_files</u> directory and run this command: 
+<ul>
+  <li>cron_file.sh</li>
+  <li>env_script.sh</li>
+  <li>run_playbook.sh</li>
+  <li>dev_playbook.yml</li>
+  <li>test_playbook.yml</li>
+  <li>prod_playbook.yml</li>
+</ul>
+There is a playbook for whichever environment you would like to run it on.<br />
+To run your playbook, navigate to the <b>shellscript_files</b> directory and run this command: 
 <pre>./run_playbook.sh</pre>
-If there are permission issues, use <b>chmod</b> to match executable permissions
+If there are permission issues, use <b>chmod</b> to match executable permissions.<br />
 It will then ask you which environment you would like to run a playbook for, where you will then enter either:
-- dev
-- test
-- prod
-Your playbook should then execute and perform tasks as needed.
-If you have a play that you wouldn't like to execute, navigate to the <u>ansible-playbooks</u> directory and comment out whatever you need.
+<ul>
+  <li>edv</li>
+  <li>test</li>
+  <li>prod</li>
+</ul>
+Your playbook should then execute and perform tasks as needed.<br />
+If you have a play that you wouldn't like to execute, navigate to the <u>ansible-playbooks</u> directory and comment out whatever you need.<br />
+
 
 <h3>Running a Cron Job</h3>
-If you would like an ansible playbook to execute every minute, then you are in luck!
+If you would like an ansible playbook to execute every minute, then you are in luck!<br />
 To run a cron job for a playbook, navigate to the <u>shellscript_files</u> directory and run this command:
 <pre>./cron_file.sh</pre>
-If there are permission issues, use <b>chmod</b> to match executable permissions
+If there are permission issues, use <b>chmod</b> to match executable permissions<br />
 It will then ask you which environment you would like to run a playbook for, where you will then enter either:
-- dev
-- test
-- prod
-Your cron job should then execute for that specific environment every minute
+<ul>
+  <li>dev</li>
+  <li>test</li>
+  <li>prod</li>
+</ul>
+Your cron job should then execute for that specific environment every minute<br /><br />
 
 Enjoy :)
