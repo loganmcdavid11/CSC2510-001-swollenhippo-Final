@@ -1,0 +1,8 @@
+# Filename: generate_ssh_key.txt
+# Author: Logan McDavid]
+# Last Updated: 12 / 5 / 23
+# Purpose: Contains a line that chains commands together to generate aan ssh key
+
+
+# Command to copy and paste in each server
+ssh-keygen -t ed25519 -C "youremail@whatever.com" || eval "$(ssh-agent -s)" || ssh-add ~/.ssh/id_ed25519 || cat ~/.ssh/id_ed25519.pub
