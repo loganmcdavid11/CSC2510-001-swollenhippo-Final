@@ -1,0 +1,63 @@
+# Filename: prod_playbook.yml
+# Author: Logan McDavid
+# Last updated: 12 / 5 / 23
+# Purpose: Install necessary packages and copy shell script
+# file to targeted servers in the prod environment
+---
+  # Prod Web Server Tasks
+  - name: Prod Web Servers
+    hosts: prod_webservers
+    tasks:
+      # Install necessary packages
+      - name: Install Apache
+        apt:
+          name: apache2
+          state: latest
+
+      - name: Install Node.js
+        apt:
+          name: nodejs
+          state: latest
+
+      - name: Install Git
+        apt:
+          name: git
+          state: latest
+
+      # Remove Directory
+      # Commented out, uncomment if necessary
+      - name: Remove Existing Directory
+        command: rm -rf /var/www/html
+
+      # Creates the Directory
+      # Commented out, uncomment if necessary
+      - name: Create Directory
+        command: mkdir /var/www/html
+
+      # Copy Shell Script File to Web Servers
+      - name: Copy env_script.sh to Server
+        copy:
+          src: /home/jlmcdavid42/shellscript_files/env_script.sh
+          dest: /var/www/html/clonescript.sh
+          mode: '0755'  # Set the execute permissions
+          owner: root
+          group: root
+
+      # Change Directory to Where the Copied Script is
+      - name: Change Directory to html
+        command: ./clonescript.sh
+        args:
+          chdir: /var/www/html
+        become: yes
+        become_user: root
+
+
+  # Prod Database Server Tasks
+  - name: Prod Database Servers
+    hosts: prod_databaseservers
+    tasks:
+      # Install necessary packages
+      - name: Install MariaDB
+        apt:
+          name: mariadb-server
+          state: latest
